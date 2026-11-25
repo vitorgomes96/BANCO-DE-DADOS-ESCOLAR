@@ -1,3 +1,5 @@
+ -----------------ATIVAR CHAVES PRIMARIAS-----------------
+ PRAGMA Foreign_keys = ON;
  -----------------TABELAS------------------------
  
  CREATE TABLE "Aluno" (
@@ -115,34 +117,34 @@ VALUES (21,'Vitor','00000000015','21/01/2000','vitor@email.com','81999990021');
 
 ---------------------CADASTRO PROFESSORES---------------------------
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (1,'Carlos Silva', '00111111111', 'carlos@email.com', 'Portugues');
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (2,'Ana Souza', '00222222222', 'ana@email.com', 'Matematica');
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (3,'Marcos Lima', '00333333333', 'marcos@email.com', 'Geografia');
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (4,'Jose Vitor', '00444444444', 'jvitor@email.com', 'Ciencias');
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (5,'Joao Pedro', '00555555555', 'jpedro@email.com', 'Geometria');
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (6,'Lucas Fernando', '00666666666', 'lfernando@email.com', 'Ingles');
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (7,'Maria Silva', '00777777777', 'marias@email.com', 'Espanhol');
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (8,'Mariana Santos', '00888888888', 'marianas@email.com', 'Educação Fisica');
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (9,'Juliana Silva', '00999999999', 'julianas@email.com', 'Artes');
 
-INSERT INTO "professor" ('id_professor','nome','cpf','email','especialidade')
+INSERT INTO "Professor" ('id_professor','nome','cpf','email','especialidade')
 VALUES (10,'Bruna Souza', '99000000000', 'brunas@email.com', 'Historia');
 
 --------------------------CADASTRO MATERIA---------------------------
@@ -298,7 +300,7 @@ UPDATE "Matricula"
 SET "situacao" = 'Cancelada'
 WHERE "id_matricula" = 1;
 
-SELECT * FROM "matricula"
+SELECT * FROM "Matricula"
 WHERE "id_matricula" = 1;
 
 ----------------EXCLUIR REGISTRO E CONFERIR---------------
@@ -324,3 +326,21 @@ WHERE "situacao" = 'Ativa';
 
 SELECT * FROM "Matricula"
 WHERE "situacao" = 'Cancelada';
+
+-------------LISTA DE ALUNOS COM MATRICULA ATIVA DA TURMA 1---------------------------------
+
+SELECT * FROM "Matricula"
+WHERE "situacao" = 'Ativa'
+AND "id_turma" = 1;
+
+-------------LISTA DE ALUNOS COM MATRICULA ATIVA DA TURMA 2--------------------------------
+
+SELECT * FROM "Matricula"
+WHERE "situacao" = 'Ativa'
+AND "id_turma" = 2;
+
+-------------LISTAR PROFESSORES EM ORDEM ALFABETICA-------------------------------
+
+SELECT "nome","cpf","email"
+FROM "Professor"
+ORDER BY "nome" ASC;
